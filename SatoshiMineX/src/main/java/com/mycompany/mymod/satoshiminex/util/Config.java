@@ -1,14 +1,10 @@
 package com.mycompany.mymod.satoshiminex.util;
 
-import com.mycompany.mymod.satoshiminex.capability.Wallet;
 import com.mycompany.mymod.satoshiminex.capability.WalletCapability;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import java.nio.file.Path;
 
 @Mod.EventBusSubscriber
 public class Config {
@@ -48,9 +44,7 @@ public class Config {
 
     private static void applyConfig() {
         BtcRateFetcher.FETCH_INTERVAL_MS = FETCH_INTERVAL.get() * 1000L;
-        WalletCapability.getWallet(Minecraft.getInstance().player).ifPresent(wallet -> {
-            wallet.setBtc(STARTING_BTC.get());
-            wallet.setRub(STARTING_RUB.get());
-        });
+        WalletCapability.STARTING_BTC = STARTING_BTC.get();
+        WalletCapability.STARTING_RUB = STARTING_RUB.get();
     }
 }

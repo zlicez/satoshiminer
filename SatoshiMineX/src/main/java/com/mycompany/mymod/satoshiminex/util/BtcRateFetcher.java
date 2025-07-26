@@ -1,7 +1,6 @@
 package com.mycompany.mymod.satoshiminex.util;
 
 import com.google.gson.Gson;
-import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,7 +12,8 @@ import java.util.concurrent.CompletableFuture;
 public class BtcRateFetcher {
     private static double currentRate = 5000.0; // Резервный курс
     private static long lastFetchTime = 0;
-    private static final long FETCH_INTERVAL_MS = 300_000; // 5 минут
+    /** Interval between rate fetches in milliseconds. Configurable via the common config. */
+    public static long FETCH_INTERVAL_MS = 300_000; // 5 минут
 
     static {
         MinecraftForge.EVENT_BUS.register(BtcRateFetcher.class);

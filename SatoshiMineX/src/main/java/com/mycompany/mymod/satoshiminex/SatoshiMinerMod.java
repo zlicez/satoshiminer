@@ -8,6 +8,7 @@ import com.mycompany.mymod.satoshiminex.init.ModMenus;
 import com.mycompany.mymod.satoshiminex.init.ModWorldGen;
 import com.mycompany.mymod.satoshiminex.util.Config;
 import com.mycompany.mymod.satoshiminex.network.NetworkHandler;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
