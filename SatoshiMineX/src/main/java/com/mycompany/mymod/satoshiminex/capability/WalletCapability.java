@@ -12,6 +12,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
@@ -20,6 +21,9 @@ import org.jetbrains.annotations.Nullable;
 @Mod.EventBusSubscriber
 public class WalletCapability {
     public static final Capability<Wallet> WALLET_CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {});
+    /** Default balances applied when a wallet is first created. */
+    public static double STARTING_BTC = 0.0;
+    public static double STARTING_RUB = 0.0;
     private static class WalletStorage implements Capability.IStorage<Wallet> {
         @Override
         @Nullable
@@ -38,6 +42,11 @@ public class WalletCapability {
     public static class Provider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
         private final Wallet wallet = new Wallet();
         private final LazyOptional<Wallet> optional = LazyOptional.of(() -> wallet);
+
+        public Provider() {
+            wallet.setBtc(STARTING_BTC);
+            wallet.setRub(STARTING_RUB);
+        }
 
         @NotNull
         @Override

@@ -12,7 +12,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.network.PacketDistributor;
+import net.minecraft.world.item.ItemStack;
 
 public class SatoshiConverterScreen extends AbstractContainerScreen<SatoshiConverterMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation("satoshiminex", "textures/gui/converter_gui.png");

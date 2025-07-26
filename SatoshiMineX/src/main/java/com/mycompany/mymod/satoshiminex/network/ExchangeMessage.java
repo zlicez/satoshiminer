@@ -3,6 +3,9 @@ package com.mycompany.mymod.satoshiminex.network;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.network.PacketDistributor;
+import com.mycompany.mymod.satoshiminex.screen.SatoshiConverterScreen;
+import com.mycompany.mymod.satoshiminex.network.NetworkHandler;
 
 import java.util.function.Supplier;
 
